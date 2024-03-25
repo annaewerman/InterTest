@@ -14,7 +14,7 @@ import android.os.Bundle;
 import android.view.View;
 
 public class skak_activity extends AppCompatActivity implements SensorEventListener {
-    private static final double SHAKE_THRESHOLD = 10.0;
+    private static final double SHAKE_THRESHOLD = 20.0;
     private SensorManager sensorManager;
     private Sensor accelerometer;
 
