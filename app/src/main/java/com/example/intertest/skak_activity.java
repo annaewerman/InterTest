@@ -41,7 +41,7 @@ public class skak_activity extends AppCompatActivity implements SensorEventListe
 
             if(acceleration > SHAKE_THRESHOLD){
                 View view = findViewById(R.id.activity_skak); // Replace main_layout with your root layout id
-                view.setBackgroundColor(Color.RED);
+                view.setBackgroundColor(Color.GREEN);
             }
         }
     }
