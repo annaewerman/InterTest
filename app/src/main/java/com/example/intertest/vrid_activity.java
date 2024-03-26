@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.hardware.SensorEventListener;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.view.View;
 
@@ -22,7 +24,7 @@ public class vrid_activity extends AppCompatActivity implements SensorEventListe
 
     private SensorManager sensorManager;
     private Sensor gyroscope;
-
+    private Vibrator vibrator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,11 @@ public class vrid_activity extends AppCompatActivity implements SensorEventListe
 
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         gyroscope = sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+
+        vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+
     }
 
     public void launchHome(View v){
@@ -45,18 +52,24 @@ public class vrid_activity extends AppCompatActivity implements SensorEventListe
 
     @Override
     public void onSensorChanged(SensorEvent event) {
+
         float z = event.values[1];
 
         float y = event.values[2];
 
         if(z < -4 || z> 4) {
             Toast.makeText(getApplicationContext(), "The turn of the screw", Toast.LENGTH_SHORT).show();
-
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                vibrator.vibrate(VibrationEffect.createOneShot(500,VibrationEffect.DEFAULT_AMPLITUDE));
+            }
         }
         if(y < -3 || y> 3) {
             Toast.makeText(getApplicationContext(), "Timber!", Toast.LENGTH_SHORT).show();
-
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                vibrator.vibrate(VibrationEffect.createOneShot(500,VibrationEffect.DEFAULT_AMPLITUDE));
+            }
         }
+
     }
 
     @Override
