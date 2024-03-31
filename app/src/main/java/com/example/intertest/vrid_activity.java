@@ -59,15 +59,15 @@ public class vrid_activity extends AppCompatActivity implements SensorEventListe
 
         if(z < -4 || z> 4) {
             Toast.makeText(getApplicationContext(), "The turn of the screw", Toast.LENGTH_SHORT).show();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                vibrator.vibrate(VibrationEffect.createOneShot(500,VibrationEffect.DEFAULT_AMPLITUDE));
-            }
+            //if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+              //  vibrator.vibrate(VibrationEffect.createOneShot(500,VibrationEffect.DEFAULT_AMPLITUDE));
+          //  }
         }
         if(y < -3 || y> 3) {
             Toast.makeText(getApplicationContext(), "Timber!", Toast.LENGTH_SHORT).show();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                vibrator.vibrate(VibrationEffect.createOneShot(500,VibrationEffect.DEFAULT_AMPLITUDE));
-            }
+           // if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            //    vibrator.vibrate(VibrationEffect.createOneShot(500,VibrationEffect.DEFAULT_AMPLITUDE));
+           // }
         }
 
     }
